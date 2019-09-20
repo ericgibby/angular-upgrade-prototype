@@ -1,0 +1,8 @@
+# IDEs
+.vscode/
+
+# Vendor
+node_modules/
+
+# Generated files
+dist/

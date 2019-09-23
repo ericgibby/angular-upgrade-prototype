@@ -1,0 +1,12 @@
+<table>
+	<thead>
+		<tr>
+			<th ng-repeat="columnKey in $ctrl.columnKeys track by $index" ng-bind="$ctrl.columnMap[columnKey]"></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="column in $ctrl.tableData track by $index">
+			<td ng-repeat="columnKey in $ctrl.columnKeys track by $index" ng-bind="column[columnKey]"></td>
+		</tr>
+	</tbody>
+</table>

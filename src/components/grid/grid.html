@@ -5,7 +5,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat="column in $ctrl.tableData track by $index">
+		<tr ng-repeat="column in $ctrl.data track by $index">
 			<td ng-repeat="columnKey in $ctrl.columnKeys track by $index" ng-bind="column[columnKey]"></td>
 		</tr>
 	</tbody>

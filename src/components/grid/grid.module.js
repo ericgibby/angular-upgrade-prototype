@@ -1,1 +1,1 @@
-angular.module('components.dataTable', []);
+angular.module('components.grid', []);

@@ -1,1 +1,1 @@
-angular.module('app.table', ['components.dataTable', 'services.api', 'ui.router']);
+angular.module('app.table', ['components.grid', 'services.api', 'ui.router']);

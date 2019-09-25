@@ -1,14 +1,14 @@
-angular.module('components.dataTable').component('myDataTable', {
+angular.module('components.grid').component('grid', {
 	bindings: {
 		columns: '<',
-		tableData: '<'
+		data: '<'
 	},
-	controller: DataTableController,
-	templateUrl: 'components/data-table/data-table.html'
+	controller: GridController,
+	templateUrl: 'components/grid/grid.html'
 });
 
-DataTableController.$inject = [];
-function DataTableController() {
+GridController.$inject = [];
+function GridController() {
 	const $ctrl = this;
 
 	// Model
@@ -28,7 +28,7 @@ function DataTableController() {
 				$ctrl.columnMap = { ...$ctrl.columns };
 			}
 		} else {
-			$ctrl.columnMap = Object.keys(($ctrl.tableData && $ctrl.tableData[0]) || []).reduce(
+			$ctrl.columnMap = Object.keys(($ctrl.data && $ctrl.data[0]) || []).reduce(
 				(obj, key) => ({ ...obj, [key]: key }),
 				{}
 			);

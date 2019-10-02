@@ -7,8 +7,8 @@
 		"build": "webpack -p",
 		"format": "prettier --ignore-path \"node_modules/**\" --write \"**/*.{ts,js,json,scss,css}\"",
 		"start": "webpack-dev-server",
-		"test": "cross-env NODE_ENV=karma karma start ./karma.conf.js --single-run",
-		"test:watch": "cross-env NODE_ENV=karma karma start ./karma.conf.js"
+		"test": "cross-env NODE_ENV=karma karma start ./karma-legacy.conf.js --single-run",
+		"test:watch": "cross-env NODE_ENV=karma karma start ./karma-legacy.conf.js"
 	},
 	"repository": {
 		"type": "git",

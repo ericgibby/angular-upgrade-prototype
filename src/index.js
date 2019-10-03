@@ -1,9 +1,6 @@
 // Load vendor files
 import './vendor';
 
-// Load styles
-import './index.scss';
-
 // Load modules before other JS
 const modules = require.context('./', true, /module\.js$/);
 modules.keys().forEach(modules);
@@ -12,10 +9,13 @@ modules.keys().forEach(modules);
 const js = require.context('./', true, /^(?!.*\.(test|spec|mock|module)\.js$).*\.js$/);
 js.keys().forEach(js);
 
-// Load HTML templates into Angular's template cache
+// Load HTML templates into AngularJS's template cache
 angular.module('app.templates', []);
 const templates = require.context('./', true, /^(?!.*index\.html$).*\.html$/);
-templates.keys().forEach(templates);
+templates
+	.keys()
+	.filter(key => !/^\.\/app/.test(key)) // Exclude (modern) Angular templates
+	.forEach(templates);
 
 // Bootstrap the app
 angular.bootstrap(document, ['app']);

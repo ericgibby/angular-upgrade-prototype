@@ -31,6 +31,20 @@ module.exports = {
 						}
 					}
 				]
+			},
+			{
+				test: /\.html$/,
+				include: [path.resolve(__dirname, 'src', 'app')],
+				use: [
+					{
+						loader: 'html-loader',
+						options: {
+							attrs: false,
+							minimize: false,
+							removeComments: false
+						}
+					}
+				]
 			}
 		]
 	},

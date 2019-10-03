@@ -16,6 +16,3 @@ templates
 	.keys()
 	.filter(key => !/^\.\/app/.test(key)) // Exclude (modern) Angular templates
 	.forEach(templates);
-
-// Bootstrap the app
-angular.bootstrap(document, ['app']);

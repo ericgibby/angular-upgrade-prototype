@@ -4,17 +4,16 @@
 	"description": "Sample AngularJS project for prototyping Angular upgrade strategies",
 	"main": "index.js",
 	"scripts": {
-		"build": "webpack -p",
+		"build": "ng build",
 		"format": "prettier --ignore-path \"node_modules/**\" --write \"**/*.{ts,js,json,scss,css}\"",
-		"start": "webpack-dev-server",
-		"test": "cross-env NODE_ENV=karma karma start ./karma-legacy.conf.js --single-run",
-		"test:watch": "cross-env NODE_ENV=karma karma start ./karma-legacy.conf.js",
+		"start": "ng serve",
+		"test": "npm run test:legacy && npm run test:modern",
+		"test:legacy": "cross-env NODE_ENV=karma karma start ./karma-legacy.conf.js --single-run",
+		"test:legacy:watch": "cross-env NODE_ENV=karma karma start ./karma-legacy.conf.js",
+		"test:modern": "ng test",
 		"ng": "ng",
-		"ng:start": "ng serve",
-		"ng:build": "ng build",
-		"ng:test": "ng test",
-		"ng:lint": "ng lint",
-		"ng:e2e": "ng e2e"
+		"lint": "ng lint",
+		"e2e": "ng e2e"
 	},
 	"repository": {
 		"type": "git",

@@ -5,6 +5,12 @@ function TableController($log, ApiService) {
 	const $ctrl = this;
 
 	// Model
+	$ctrl.columns = [
+		{ key: 'firstName', title: 'First Name' },
+		{ key: 'lastName', title: 'Last Name' },
+		{ key: 'email', title: 'Email' },
+		{ key: 'dateCreated', title: 'Created' }
+	];
 	$ctrl.data = [];
 	$ctrl.loading = false;
 

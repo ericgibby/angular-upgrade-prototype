@@ -1,5 +1,9 @@
 <h2>The Table View</h2>
 <p>This is a page that displays a table with useless data.</p>
+<h3>af-table</h3>
+<af-table columns="{{ $ctrl.columns }}" data="{{ $ctrl.data }}"></af-table>
+<hr />
+<h3>grid</h3>
 <grid
 	columns="{ firstName: 'First Name', lastName: 'Last Name', email: 'Email', dateCreated: 'Created' }"
 	data="$ctrl.data"

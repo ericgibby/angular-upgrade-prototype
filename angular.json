@@ -44,7 +44,11 @@
 						"aot": false,
 						"assets": ["src/favicon.ico", "src/assets"],
 						"styles": ["src/styles.scss"],
-						"scripts": []
+						"scripts": [
+							{
+								"input": "node_modules/document-register-element/build/document-register-element.js"
+							}
+						]
 					},
 					"configurations": {
 						"production": {

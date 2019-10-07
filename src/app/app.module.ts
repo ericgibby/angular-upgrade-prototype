@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { UpgradeModule } from '@angular/upgrade/static';
+import { DowngradeModule } from './downgrade/downgrade.module';
 
 @NgModule({
-	imports: [BrowserModule, UpgradeModule]
+	imports: [BrowserModule, UpgradeModule, DowngradeModule]
 })
 export class AppModule {
 	constructor(private upgrade: UpgradeModule) {}

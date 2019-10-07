@@ -41,6 +41,7 @@
 		"@angular/router": "~8.2.8",
 		"@angular/upgrade": "^8.2.8",
 		"@babel/runtime": "^7.6.0",
+		"@ericgibby/angular-foundation": "^0.2.2",
 		"@uirouter/angularjs": "^1.0.22",
 		"angular": "^1.7.9",
 		"foundation-sites": "^6.5.3",

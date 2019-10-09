@@ -3,12 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { UpgradeModule } from '@angular/upgrade/static';
 import { AngularFoundationModule } from '@ericgibby/angular-foundation';
 import { AppRoutingModule } from './app-routing.module';
+import { GridDirective } from './components/grid.directive';
 import { DowngradeModule } from './downgrade/downgrade.module';
 import { apiServiceProvider } from './services/api.service';
 import { TableComponent } from './views/table/table.component';
 
 @NgModule({
-	declarations: [TableComponent],
+	declarations: [TableComponent, GridDirective],
 	entryComponents: [TableComponent],
 	imports: [BrowserModule, UpgradeModule, DowngradeModule, AppRoutingModule, AngularFoundationModule],
 	providers: [apiServiceProvider],

@@ -1,8 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { TableComponent } from './table.component';
 import { AngularFoundationModule } from '@ericgibby/angular-foundation';
-import { apiServiceProvider, ApiService } from '../../services/api.service';
+import 'angular';
+import { GridDirective } from 'src/app/components/grid.directive';
+import { ApiService } from '../../services/api.service';
+import { TableComponent } from './table.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('TableComponent', () => {
 	let component: TableComponent;
@@ -14,7 +16,8 @@ describe('TableComponent', () => {
 		TestBed.configureTestingModule({
 			imports: [AngularFoundationModule],
 			declarations: [TableComponent],
-			providers: [{ provide: ApiService, useValue: apiService }]
+			providers: [{ provide: ApiService, useValue: apiService }],
+			schemas: [NO_ERRORS_SCHEMA]
 		}).compileComponents();
 	}));
 

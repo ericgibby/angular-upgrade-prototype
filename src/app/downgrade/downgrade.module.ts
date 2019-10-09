@@ -16,6 +16,6 @@ export class DowngradeModule {
 			module.directive(selector, downgradeComponent({ component }));
 		});
 
-		registerLocationFactory(module);
+		// registerLocationFactory(module);
 	}
 }

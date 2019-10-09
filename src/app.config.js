@@ -1,10 +1,7 @@
 angular.module('app').config(config);
 
-config.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider'];
-function config($locationProvider, $stateProvider, $urlRouterProvider) {
-	$locationProvider.html5Mode({ enabled: true, requireBase: process.env.NODE_ENV !== 'karma' });
-	$locationProvider.hashPrefix('!');
-
+config.$inject = ['$stateProvider', '$urlServiceProvider', '$urlRouterProvider'];
+function config($stateProvider, $urlServiceProvider, $urlRouterProvider) {
 	$stateProvider.state('app', {
 		abstract: true,
 		url: '/'
@@ -13,4 +10,6 @@ function config($locationProvider, $stateProvider, $urlRouterProvider) {
 	if (process.env.NODE_ENV !== 'karma') {
 		$urlRouterProvider.otherwise('/home');
 	}
+
+	$urlServiceProvider.deferIntercept();
 }

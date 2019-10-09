@@ -5,5 +5,5 @@ angular.module('app', [
 	'app.templates',
 	'components.header',
 	'downgrade',
-	'ui.router'
+	'ui.router.upgrade'
 ]);

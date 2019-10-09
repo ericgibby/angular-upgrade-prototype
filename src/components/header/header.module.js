@@ -1,1 +1,1 @@
-angular.module('components.header', ['ui.router']);
+angular.module('components.header', ['ui.router.upgrade']);

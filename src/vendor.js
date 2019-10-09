@@ -1,2 +1,2 @@
 import 'angular';
-import '@uirouter/angularjs';
+import '@uirouter/angular-hybrid';

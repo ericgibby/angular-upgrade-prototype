@@ -3,6 +3,8 @@ describe('AppController', () => {
 	let $location;
 
 	beforeEach(() => {
+		angular.module('downgrade', []);
+
 		$location = jasmine.createSpyObj('$location', [
 			'absUrl',
 			'url',

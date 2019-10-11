@@ -7,6 +7,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { setUpLocationSync } from '@angular/router/upgrade';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
+import { BootstrapService } from './app/services/bootstrap.service.js';
 
 if (environment.production) {
 	enableProdMode();
@@ -15,7 +16,10 @@ if (environment.production) {
 platformBrowserDynamic()
 	.bootstrapModule(AppModule)
 	.then((ref: NgModuleRef<AppModule>) => {
-		ref.instance.upgrade.bootstrap(document.body, ['app'], { strictDi: true });
+		const bootstrapper = ref.injector.get<BootstrapService>(BootstrapService);
+		bootstrapper.bootstrapAngularJs();
+		// console.log('Bootstrapping AngularJS...');
+		// ref.instance.upgrade.bootstrap(document.body, ['app'], { strictDi: true });
 
 		// Keep location in sync between UI Router and Angular Router
 		setUpLocationSync(ref.instance.upgrade, 'path');

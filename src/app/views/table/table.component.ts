@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../services/api.service';
+import { TableColumn } from '@ericgibby/angular-foundation';
 
 @Component({
 	selector: 'app-table',
@@ -6,7 +8,19 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
-	constructor() {}
+	columns: TableColumn[] = [
+		{ key: 'firstName', title: 'First Name' },
+		{ key: 'lastName', title: 'Last Name' },
+		{ key: 'email', title: 'Email' },
+		{ key: 'dateCreated', title: 'Created' }
+	];
+	data: any[];
+	constructor(private api: ApiService) {}
 
-	ngOnInit() {}
+	ngOnInit() {
+		this.api
+			.getTableData()
+			.then(data => (this.data = data))
+			.catch(err => console.error(err));
+	}
 }

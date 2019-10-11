@@ -1,4 +1,6 @@
 import { UpgradeModule } from '@angular/upgrade/static';
+import { BootstrapService } from './bootstrap.service';
+import { takeWhile, tap, switchMap } from 'rxjs/operators';
 
 export abstract class ApiService {
 	abstract getTableData(): Promise<any>;
@@ -6,6 +8,12 @@ export abstract class ApiService {
 
 export const apiServiceProvider = {
 	provide: ApiService,
-	useFactory: (upgrade: UpgradeModule) => upgrade.$injector.get('ApiService'),
-	deps: [UpgradeModule]
+	useFactory: (upgrade: UpgradeModule, bootstrapper: BootstrapService) => {
+		console.log('apiServiceProvider...');
+		return bootstrapper.bootstrapped$.pipe(
+			takeWhile(value => !value),
+			switchMap(() => upgrade.$injector.get('ApiService'))
+		);
+	},
+	deps: [UpgradeModule, BootstrapService]
 };

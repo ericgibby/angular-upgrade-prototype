@@ -11,7 +11,8 @@ export class DowngradeModule {
 	constructor() {
 		const module = (window as any).angular.module('downgrade', []);
 		AF_COMPONENTS.forEach(component => {
-			const selector = `af${component.name.replace(/Component/i, '')}`;
+			// We'll prepend with 'ng1' because we need to use a different prefix for downgraded components
+			const selector = `ng1Af${component.name.replace(/Component/i, '')}`;
 			module.directive(selector, downgradeComponent({ component }));
 		});
 	}

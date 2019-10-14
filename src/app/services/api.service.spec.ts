@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ApiService, apiServiceProvider } from './api.service';
+import { ApiService } from './api.service';
 import { UpgradeModule } from '@angular/upgrade/static';
 
 describe('ApiService', () => {
@@ -13,7 +13,7 @@ describe('ApiService', () => {
 			}
 		};
 		TestBed.configureTestingModule({
-			providers: [apiServiceProvider, { provide: UpgradeModule, useValue: upgrade }]
+			providers: [{ provide: UpgradeModule, useValue: upgrade }]
 		});
 	});
 

@@ -1,19 +1,22 @@
+import { Injectable } from '@angular/core';
 import { UpgradeModule } from '@angular/upgrade/static';
-import { BootstrapService } from './bootstrap.service';
-import { takeWhile, tap, switchMap } from 'rxjs/operators';
+import { from, Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import { Ng1ServiceWrapper } from './ng1-service-wrapper';
 
-export abstract class ApiService {
-	abstract getTableData(): Promise<any>;
+interface IApiService {
+	getTableData(): Promise<any[]> | Observable<any[]>;
 }
 
-export const apiServiceProvider = {
-	provide: ApiService,
-	useFactory: (upgrade: UpgradeModule, bootstrapper: BootstrapService) => {
-		console.log('apiServiceProvider...');
-		return bootstrapper.bootstrapped$.pipe(
-			takeWhile(value => !value),
-			switchMap(() => upgrade.$injector.get('ApiService'))
-		);
-	},
-	deps: [UpgradeModule, BootstrapService]
-};
+@Injectable({
+	providedIn: 'root'
+})
+export class ApiService extends Ng1ServiceWrapper<IApiService> implements IApiService {
+	constructor(protected upgrade: UpgradeModule) {
+		super('ApiService', upgrade);
+	}
+
+	getTableData(): Observable<any[]> {
+		return this.getNg1Service().pipe(switchMap(api => from(api.getTableData())));
+	}
+}

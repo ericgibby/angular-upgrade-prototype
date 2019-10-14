@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../services/api.service';
 import { TableColumn } from '@ericgibby/angular-foundation';
+import { of } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
+import { ApiService } from '../../services/api.service';
 
 @Component({
 	selector: 'app-table',
@@ -15,12 +17,21 @@ export class TableComponent implements OnInit {
 		{ key: 'dateCreated', title: 'Created' }
 	];
 	data: any[];
+
 	constructor(private api: ApiService) {}
 
 	ngOnInit() {
 		this.api
 			.getTableData()
-			.then(data => (this.data = data))
-			.catch(err => console.error(err));
+			.pipe(
+				catchError(err => {
+					console.error(err);
+					return of([]);
+				}),
+				tap(data => {
+					this.data = data;
+				})
+			)
+			.subscribe();
 	}
 }

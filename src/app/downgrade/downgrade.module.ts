@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { downgradeComponent } from '@angular/upgrade/static';
 import { AF_COMPONENTS, AngularFoundationModule } from '@ericgibby/angular-foundation';
-import { registerLocationFactory } from './location-shim';
 
 @NgModule({
 	imports: [CommonModule, AngularFoundationModule],
@@ -15,7 +14,5 @@ export class DowngradeModule {
 			const selector = `af${component.name.replace(/Component/i, '')}`;
 			module.directive(selector, downgradeComponent({ component }));
 		});
-
-		// registerLocationFactory(module);
 	}
 }

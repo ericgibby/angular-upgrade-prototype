@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TableColumn } from '@ericgibby/angular-foundation';
-import { of } from 'rxjs';
+import { of, Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { ApiService } from '../../services/api.service';
 
@@ -16,22 +16,16 @@ export class TableComponent implements OnInit {
 		{ key: 'email', title: 'Email' },
 		{ key: 'dateCreated', title: 'Created' }
 	];
-	data: any[];
+	data$: Observable<any[]>;
 
 	constructor(private api: ApiService) {}
 
 	ngOnInit() {
-		this.api
-			.getTableData()
-			.pipe(
-				catchError(err => {
-					console.error(err);
-					return of([]);
-				}),
-				tap(data => {
-					this.data = data;
-				})
-			)
-			.subscribe();
+		this.data$ = this.api.getTableData().pipe(
+			catchError(err => {
+				console.error(err);
+				return of([]);
+			})
+		);
 	}
 }

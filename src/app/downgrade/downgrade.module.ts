@@ -2,10 +2,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { downgradeComponent } from '@angular/upgrade/static';
 import { AF_COMPONENTS, AngularFoundationModule } from '@ericgibby/angular-foundation';
+import { AppComponent } from '../app.component';
 
 @NgModule({
 	imports: [CommonModule, AngularFoundationModule],
-	entryComponents: [...AF_COMPONENTS]
+	entryComponents: [...AF_COMPONENTS, AppComponent]
 })
 export class DowngradeModule {
 	constructor() {
@@ -15,5 +16,8 @@ export class DowngradeModule {
 			const selector = `ng1Af${component.name.replace(/Component/i, '')}`;
 			module.directive(selector, downgradeComponent({ component }));
 		});
+
+		// Need to downgrade AppComponent as well so it will load in index.html
+		module.directive('appRoot', downgradeComponent({ component: AppComponent }));
 	}
 }

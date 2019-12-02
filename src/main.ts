@@ -7,6 +7,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 if (environment.production) {
 	enableProdMode();
@@ -15,13 +16,12 @@ if (environment.production) {
 platformBrowserDynamic()
 	.bootstrapModule(AppModule)
 	.then((ref: NgModuleRef<AppModule>) => {
-		// Reload current route so Angular is aware.
-		const zone = ref.injector.get(NgZone);
+		// Re-navigate to current route so Angular is aware of route change.
+		const location = ref.injector.get(Location);
 		const router = ref.injector.get(Router);
+		const zone = ref.injector.get(NgZone);
 		zone.run(() => {
-			const { pathname, search, hash } = window.location;
-			const url = `${pathname}${search}${hash}`;
-			router.navigateByUrl(url);
+			router.navigateByUrl(location.path(true));
 		});
 	})
 	.catch(err => console.error(err));

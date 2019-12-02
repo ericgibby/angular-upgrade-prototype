@@ -3,6 +3,16 @@ import { AngularFoundationModule } from '@ericgibby/angular-foundation';
 import { of } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 import { TableComponent } from './table.component';
+import { GridDirective } from 'src/app/components/grid.directive';
+import { Injector, Directive } from '@angular/core';
+
+@Directive({
+	// tslint:disable-next-line:directive-selector
+	selector: 'grid',
+	// tslint:disable-next-line:no-inputs-metadata-property
+	inputs: ['columns', 'data']
+})
+class MockGridDirective {}
 
 describe('TableComponent', () => {
 	let api: ApiService;
@@ -12,7 +22,7 @@ describe('TableComponent', () => {
 	beforeEach(async(() => {
 		api = jasmine.createSpyObj('ApiService', ['getTableData']);
 		TestBed.configureTestingModule({
-			declarations: [TableComponent],
+			declarations: [TableComponent, MockGridDirective],
 			imports: [AngularFoundationModule],
 			providers: [{ provide: ApiService, useValue: api }]
 		}).compileComponents();

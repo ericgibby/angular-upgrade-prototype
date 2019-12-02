@@ -1,19 +1,18 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ApiService } from './api.service';
+import { ApiService, apiServiceProvider } from './api.service';
 import { UpgradeModule } from '@angular/upgrade/static';
+import { Injector } from '@angular/core';
 
 describe('ApiService', () => {
-	let upgrade: Partial<UpgradeModule>;
+	let $injector: Partial<Injector>;
 
 	beforeEach(() => {
-		upgrade = {
-			$injector: {
-				get: jasmine.createSpy().and.returnValue({})
-			}
+		$injector = {
+			get: jasmine.createSpy().and.returnValue({})
 		};
 		TestBed.configureTestingModule({
-			providers: [{ provide: UpgradeModule, useValue: upgrade }]
+			providers: [{ provide: '$injector', useValue: $injector }, apiServiceProvider]
 		});
 	});
 

@@ -7,11 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GridDirective } from './components/grid.directive';
 import { DowngradeModule } from './downgrade/downgrade.module';
+import { apiServiceProvider } from './services/api.service';
 import { TableComponent } from './views/table/table.component';
 
 @NgModule({
 	declarations: [AppComponent, TableComponent, GridDirective],
-	imports: [BrowserModule, UpgradeModule, DowngradeModule, AppRoutingModule, AngularFoundationModule]
+	imports: [BrowserModule, UpgradeModule, DowngradeModule, AppRoutingModule, AngularFoundationModule],
+	providers: [apiServiceProvider]
 })
 export class AppModule {
 	constructor(public upgrade: UpgradeModule) {}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TableColumn } from '@ericgibby/angular-foundation';
-import { of, Observable } from 'rxjs';
+import { from, of, Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { ApiService } from '../../services/api.service';
 
@@ -21,7 +21,7 @@ export class TableComponent implements OnInit {
 	constructor(private api: ApiService) {}
 
 	ngOnInit() {
-		this.data$ = this.api.getTableData().pipe(
+		this.data$ = from(this.api.getTableData()).pipe(
 			catchError(err => {
 				console.error(err);
 				return of([]);

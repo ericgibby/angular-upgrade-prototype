@@ -4,7 +4,7 @@
 	"description": "Sample AngularJS project for prototyping Angular upgrade strategies",
 	"main": "index.js",
 	"scripts": {
-		"build": "ng build",
+		"build": "ng build --prod",
 		"format": "prettier --ignore-path \"node_modules/**\" --write \"**/*.{ts,js,json,scss,css}\"",
 		"start": "ng serve",
 		"test": "npm run test:legacy && npm run test:modern",

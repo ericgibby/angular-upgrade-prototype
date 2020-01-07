@@ -82,7 +82,8 @@
 					"builder": "@angular-builders/custom-webpack:dev-server",
 					"options": {
 						"browserTarget": "angular-upgrade-prototype:build",
-						"port": 8080
+						"port": 8080,
+						"proxyConfig": "src/proxy.conf.json"
 					},
 					"configurations": {
 						"production": {

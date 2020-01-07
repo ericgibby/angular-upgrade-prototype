@@ -13,7 +13,8 @@
 		"test:modern": "ng test",
 		"ng": "ng",
 		"lint": "ng lint",
-		"e2e": "ng e2e"
+		"e2e": "ng e2e",
+		"e2e:ci": "ng run angular-upgrade-prototype:e2e-ci"
 	},
 	"repository": {
 		"type": "git",

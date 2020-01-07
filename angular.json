@@ -116,10 +116,23 @@
 					}
 				},
 				"e2e": {
-					"builder": "@angular-devkit/build-angular:protractor",
+					"builder": "@briebug/cypress-schematic:cypress",
 					"options": {
-						"protractorConfig": "e2e/protractor.conf.js",
-						"devServerTarget": "angular-upgrade-prototype:serve"
+						"devServerTarget": "angular-upgrade-prototype:serve",
+						"watch": true,
+						"headless": false
+					},
+					"configurations": {
+						"production": {
+							"devServerTarget": "angular-upgrade-prototype:serve:production"
+						}
+					}
+				},
+				"e2e-ci": {
+					"builder": "@briebug/cypress-schematic:cypress",
+					"options": {
+						"devServerTarget": "angular-upgrade-prototype:serve",
+						"headless": true
 					},
 					"configurations": {
 						"production": {

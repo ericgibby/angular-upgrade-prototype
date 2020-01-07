@@ -1,5 +1,11 @@
 describe('Menu bar', () => {
 	beforeEach(() => {
+		cy.server();
+		cy.route({
+			method: 'GET',
+			url: '/api',
+			response: 'fixture:users.json'
+		}).as('getUsers');
 		cy.visit('/home');
 		cy.get('.menu-bar .menu > li').as('menuItems');
 	});

@@ -1,4 +1,4 @@
-angular.module('app.table').controller('TableController', TableController);
+window.angular.module('app.table').controller('TableController', TableController);
 
 TableController.$inject = ['$log', 'ApiService'];
 function TableController($log, ApiService) {

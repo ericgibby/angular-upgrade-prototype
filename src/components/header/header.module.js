@@ -1,1 +1,1 @@
-angular.module('components.header', ['ui.router']);
+window.angular.module('components.header', ['ui.router']);

@@ -1,4 +1,4 @@
-angular.module('app').config(config);
+window.angular.module('app').config(config);
 
 config.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider'];
 function config($locationProvider, $stateProvider, $urlRouterProvider) {

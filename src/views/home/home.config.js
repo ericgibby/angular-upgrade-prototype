@@ -1,4 +1,4 @@
-angular.module('app.home').config(config);
+window.angular.module('app.home').config(config);
 
 config.$inject = ['$stateProvider'];
 function config($stateProvider) {

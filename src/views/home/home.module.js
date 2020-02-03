@@ -1,1 +1,1 @@
-angular.module('app.home', ['ui.router']);
+window.angular.module('app.home', ['ui.router']);

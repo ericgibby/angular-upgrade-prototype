@@ -1,4 +1,4 @@
-angular.module('components.grid').component('grid', {
+window.angular.module('components.grid').component('grid', {
 	bindings: {
 		columns: '<',
 		data: '<'

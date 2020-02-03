@@ -1,1 +1,1 @@
-angular.module('components.grid', []);
+window.angular.module('components.grid', []);

@@ -1,1 +1,1 @@
-angular.module('services.api', ['app.constants']);
+window.angular.module('services.api', ['app.constants']);

@@ -1,4 +1,4 @@
-angular.module('services.api').service('ApiService', ApiService);
+window.angular.module('services.api').service('ApiService', ApiService);
 
 ApiService.$inject = ['$http', 'URLS'];
 function ApiService($http, URLS) {

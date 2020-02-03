@@ -1,3 +1,3 @@
-angular.module('components.header').component('appHeader', {
+window.angular.module('components.header').component('appHeader', {
 	templateUrl: 'components/header/header.html'
 });

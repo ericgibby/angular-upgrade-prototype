@@ -1,20 +1,22 @@
+const { inject, module } = window.angular.mock;
+
 describe('AppController', () => {
 	let $controller;
 	let $location;
 
 	beforeEach(() => {
-		$location = jasmine.createSpyObj('$location', [
-			'absUrl',
-			'url',
-			'protocol',
-			'host',
-			'port',
-			'path',
-			'search',
-			'hash',
-			'replace',
-			'state'
-		]);
+		$location = {
+			absUrl: jest.fn(),
+			url: jest.fn(),
+			protocol: jest.fn(),
+			host: jest.fn(),
+			port: jest.fn(),
+			path: jest.fn(),
+			search: jest.fn(),
+			hash: jest.fn(),
+			replace: jest.fn(),
+			state: jest.fn()
+		};
 		module('app', $provide => {
 			$provide.value('$location', $location);
 		});

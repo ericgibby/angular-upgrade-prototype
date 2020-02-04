@@ -10,6 +10,8 @@ import 'angular-mocks';
 
 // Load module files
 walkDirectory('src/', [], /\.module\.js$/).forEach(f => importFile(f, /^src/, '.'));
+window.angular.module('app.templates', []);
+
 // Load other source files
 walkDirectory('src/', [], /^(?!.*\.(test|spec|mock|module|entry)\.js$).*\.js$/).forEach(f => {
 	if (f !== 'src/index.js') {

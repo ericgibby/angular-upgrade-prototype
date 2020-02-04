@@ -1,3 +1,5 @@
+const { inject, module } = window.angular.mock;
+
 describe('TableController', () => {
 	let $controller;
 	let $ctrl;
@@ -13,7 +15,9 @@ describe('TableController', () => {
 			$rootScope = $injector.get('$rootScope');
 		});
 
-		ApiService = jasmine.createSpyObj('ApiService', ['getTableData']);
+		ApiService = {
+			getTableData: jest.fn()
+		};
 	});
 
 	afterEach(() => {
@@ -24,7 +28,7 @@ describe('TableController', () => {
 	});
 
 	it('initializes without error', () => {
-		ApiService.getTableData.and.returnValue($q.when([]));
+		jest.spyOn(ApiService, 'getTableData').mockImplementation(() => $q.when([]));
 		$ctrl = $controller('TableController', { ApiService });
 		expect($ctrl).toBeDefined();
 	});
@@ -34,7 +38,7 @@ describe('TableController', () => {
 			const users = [
 				{ firstName: 'User', lastName: 'One', email: 'example.com', dateCreated: '20019-09-23T00:00:00.000Z' }
 			];
-			ApiService.getTableData.and.returnValue($q.when(users));
+			jest.spyOn(ApiService, 'getTableData').mockImplementation(() => $q.when(users));
 
 			$ctrl = $controller('TableController', { ApiService });
 			$rootScope.$apply();

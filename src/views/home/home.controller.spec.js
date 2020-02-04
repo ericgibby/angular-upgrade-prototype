@@ -1,3 +1,5 @@
+const { inject, module } = window.angular.mock;
+
 describe('HomeController', () => {
 	let $controller;
 

@@ -1,3 +1,5 @@
+const { inject, module } = window.angular.mock;
+
 describe('ApiService', () => {
 	let $httpBackend;
 	let ApiService;

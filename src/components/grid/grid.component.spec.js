@@ -1,3 +1,5 @@
+const { inject, module } = window.angular.mock;
+
 describe('GridController', () => {
 	let $componentController;
 

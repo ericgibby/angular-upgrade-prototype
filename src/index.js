@@ -1,6 +1,3 @@
-// eslint-disable-next-line import/no-webpack-loader-syntax
-// import 'expose-loader?angular';
-
 // Load vendor files
 import './vendor';
 

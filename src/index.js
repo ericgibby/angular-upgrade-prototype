@@ -9,7 +9,7 @@ const modules = require.context('./', true, /module\.js$/);
 modules.keys().forEach(modules);
 
 // Load all other JS
-const js = require.context('./', true, /^(?!.*\.(test|spec|mock|module|entry)\.js$).*\.js$/);
+const js = require.context('./', true, /^(?!.*\.(test|spec|mock|module)\.js$).*\.js$/);
 js.keys().forEach(js);
 
 // Load HTML templates into Angular's template cache

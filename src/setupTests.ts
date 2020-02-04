@@ -13,7 +13,7 @@ walkDirectory('src/', [], /\.module\.js$/).forEach(f => importFile(f, /^src/, '.
 window.angular.module('app.templates', []);
 
 // Load other source files
-walkDirectory('src/', [], /^(?!.*\.(test|spec|mock|module|entry)\.js$).*\.js$/).forEach(f => {
+walkDirectory('src/', [], /^(?!.*\.(test|spec|mock|module)\.js$).*\.js$/).forEach(f => {
 	if (f !== 'src/index.js') {
 		importFile(f, /^src/, '.');
 	}

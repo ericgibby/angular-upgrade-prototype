@@ -9,10 +9,11 @@ const modules = require.context('./', true, /module\.js$/);
 modules.keys().forEach(modules);
 
 // Load all other JS
-const js = require.context('./', true, /^(?!.*\.(test|spec|mock|module)\.js$).*\.js$/);
+const js = require.context('./', true, /^(?!.*\.(test|spec|mock|module|entry)\.js$).*\.js$/);
 js.keys().forEach(js);
 
 // Load HTML templates into Angular's template cache
+window.angular.module('app.templates', []);
 
 /* eslint-disable import/no-webpack-loader-syntax */
 require('ngtemplate-loader?relativeTo=src/&module=app.templates!html-loader!./components/grid/grid.html');

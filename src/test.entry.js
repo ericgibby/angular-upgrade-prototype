@@ -10,4 +10,4 @@ const js = require.context('./', true, /^(?!.*(index|\.(test|spec|module))\.js$)
 js.keys().forEach(js);
 
 // Stub in templates module (don't need to actually load HTML though)
-window.window.angular.module('app.templates', []);
+window.angular.module('app.templates', []);

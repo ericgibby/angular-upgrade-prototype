@@ -1,3 +1,6 @@
+// Load React app
+import './app/index';
+
 // Load vendor files
 import './vendor';
 

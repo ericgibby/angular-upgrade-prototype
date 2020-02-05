@@ -7028,6 +7028,11 @@ next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
+ngreact@^0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/ngreact/-/ngreact-0.5.2.tgz#d48180b578b186ad70861a3de9ba508b3f22b2ae"
+  integrity sha512-FCQGtTkDrnI3ywhvK9wUf7C6SYfqKDdRW+cPvy358GFe3AnA4rfvWisDVUQyf5YwNr439ito9xUuuEv80QXhSQ==
+
 ngtemplate-loader@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/ngtemplate-loader/-/ngtemplate-loader-2.0.1.tgz#9d7ed2e8a2363523ad7b64d74aac402d8daff3f3"

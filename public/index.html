@@ -22,8 +22,10 @@
 	</head>
 	<body>
 		<noscript>You need to enable JavaScript to run this app.</noscript>
-		<app-header></app-header>
-		<div class="grid-container" ui-view></div>
+		<div id="angularjs-root">
+			<app-header></app-header>
+			<div class="grid-container" ui-view></div>
+		</div>
 		<div id="react-root" class="grid-container"></div>
 		<!--
       This HTML file is a template.

@@ -1,6 +1,3 @@
-// Load React app
-import './app/index';
-
 // Load vendor files
 import './vendor';
 
@@ -19,11 +16,13 @@ js.keys().forEach(js);
 window.angular.module('app.templates', []);
 
 /* eslint-disable import/no-webpack-loader-syntax */
-require('ngtemplate-loader?relativeTo=src/&module=app.templates!html-loader!./components/grid/grid.html');
 require('ngtemplate-loader?relativeTo=src/&module=app.templates!html-loader!./components/header/header.html');
 require('ngtemplate-loader?relativeTo=src/&module=app.templates!html-loader!./views/home/home.html');
 require('ngtemplate-loader?relativeTo=src/&module=app.templates!html-loader!./views/table/table.html');
 /* eslint-enable */
 
 // Bootstrap the app
-window.angular.bootstrap(document, ['app']);
+window.angular.bootstrap(document.getElementById('angularjs-root'), ['app']);
+
+// Load React app
+require('./app/index');

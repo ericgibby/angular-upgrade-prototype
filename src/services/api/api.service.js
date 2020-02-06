@@ -1,9 +1,13 @@
-import { getTableData } from '../../app/services/api';
+import { getTableData as apiGetTableData } from '../../app/services/api';
 
 window.angular.module('services.api').service('ApiService', ApiService);
 
 ApiService.$inject = ['$timeout'];
 function ApiService($timeout) {
-	// Wrap in $timeout to keep it in the digest cycle
-	this.getTableData = () => $timeout(() => getTableData().toPromise());
+	this.getTableData = getTableData;
+
+	function getTableData() {
+		// Wrap in $timeout to keep it in the digest cycle
+		return $timeout(() => apiGetTableData().toPromise());
+	}
 }

@@ -1,30 +1,26 @@
+import fetchMock from 'fetch-mock-jest';
+import { URLS } from '../../app/constants/urls';
+
 const { inject, module } = window.angular.mock;
 
 describe('ApiService', () => {
-	let $httpBackend;
+	let $flushPendingTasks;
 	let ApiService;
-	let URLS;
 
 	beforeEach(() => {
-		URLS = {
-			api: 'http://example.com'
-		};
 		module('services.api', $provide => {
 			$provide.constant('URLS', URLS);
 		});
 		inject($injector => {
-			$httpBackend = $injector.get('$httpBackend');
+			$flushPendingTasks = $injector.get('$flushPendingTasks');
 			ApiService = $injector.get('ApiService');
 		});
 	});
 
 	afterEach(() => {
-		$httpBackend.verifyNoOutstandingExpectation();
-		$httpBackend.verifyNoOutstandingRequest();
-
-		$httpBackend = undefined;
+		$flushPendingTasks = undefined;
 		ApiService = undefined;
-		URLS = undefined;
+		fetchMock.restore();
 	});
 
 	it('initializes without error', () => {
@@ -38,14 +34,18 @@ describe('ApiService', () => {
 					{ firstName: 'User', lastName: 'One', email: 'user@example.com', dateCreated: '2019-09-23T00:00:00.000Z' }
 				]
 			};
-			$httpBackend.expectGET(URLS.api).respond(tableData);
+			fetchMock.getOnce(URLS.api, tableData);
 			ApiService.getTableData()
 				.then(data => {
 					expect(data).toEqual(tableData.users);
+					expect(fetchMock).toHaveFetched(URLS.api);
 					done();
 				})
 				.catch(done.fail);
-			$httpBackend.flush();
+
+			$flushPendingTasks();
+			// Flush in a timeout so the observable will emit ¯\_(ツ)_/¯
+			setTimeout(() => $flushPendingTasks());
 		});
 	});
 });

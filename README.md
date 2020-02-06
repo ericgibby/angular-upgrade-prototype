@@ -1,6 +1,6 @@
-# Angular Upgrade Prototype
+# AngularJS to React Upgrade Prototype
 
-This is a basic AngularJS application to be used for prototyping partial upgrades by including components written with other frameworks, such as Angular or React.
+This is a basic AngularJS-React hybrid application to be used for prototyping partial upgrades by including components written with other frameworks, such as Angular or React.
 
 ## Setup
 
@@ -37,7 +37,7 @@ See https://github.com/creationix/nvm for more information on NVM.
 Run the following commands in the terminal/command prompt from the project directory:
 
 ```
-npm install
+yarn install
 ```
 
 ## Run Application
@@ -47,7 +47,7 @@ npm install
 You can build a bundled, minified version of the application for distribution with the following command:
 
 ```
-npm run build
+yarn build
 ```
 
 ### Start Development Web Server
@@ -55,7 +55,7 @@ npm run build
 You can start the webpack development server with the following command:
 
 ```
-npm start
+yarn start
 ```
 
 ### Tests
@@ -63,11 +63,11 @@ npm start
 You can run tests a single time with the following command:
 
 ```
-npm test
+yarn test:ci
 ```
 
 Or use the following command to watch for file changes and rerun tests after any file is updated:
 
 ```
-npm run test:watch
+yarn test
 ```

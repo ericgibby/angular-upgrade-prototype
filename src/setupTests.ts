@@ -7,6 +7,7 @@ import fs from 'fs';
 import path from 'path';
 import './vendor';
 import 'angular-mocks';
+import 'fetch-mock-jest';
 
 // Load module files
 walkDirectory('src/', [], /\.module\.js$/).forEach(f => importFile(f, /^src/, '.'));

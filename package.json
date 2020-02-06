@@ -76,5 +76,10 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
+	},
+	"jest": {
+		"moduleNameMapper": {
+			"\\.html$": "<rootDir>/__mocks__/htmlMock.js"
+		}
 	}
 }

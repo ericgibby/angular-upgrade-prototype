@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import 'ngtemplate-loader?relativeTo=src/&module=components.grid!html-loader!./grid.html';
+
 window.angular.module('components.grid').component('grid', {
 	bindings: {
 		columns: '<',

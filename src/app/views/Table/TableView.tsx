@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import React, { useEffect, useState } from 'react';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import '../../../components/grid/grid.component';
 import AngularJs from '../../components/AngularJs/AngularJs';
 import Table from '../../components/Table/Table';
@@ -11,13 +11,12 @@ export default function TableView() {
 	useEffect(() => {
 		const sub = getTableData()
 			.pipe(
-				tap(users => setData(users)),
 				catchError(err => {
 					console.error(err);
 					return [];
 				})
 			)
-			.subscribe();
+			.subscribe(users => setData(users));
 
 		return () => sub.unsubscribe();
 	}, []);
